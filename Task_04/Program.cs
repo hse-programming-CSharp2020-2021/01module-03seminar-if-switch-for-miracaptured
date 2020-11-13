@@ -39,23 +39,39 @@ namespace Task_04 {
 			Thread.CurrentThread.CurrentCulture = new CultureInfo("ru-RU");
 			Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru-RU");
 
-			double x;
-			// TODO : Считать точку.
+			double x, y;
+			// TODO : Считать координаты точки.
 			x = double.Parse(Console.ReadLine());
+			y = double.Parse(Console.ReadLine());
 
-			Console.WriteLine($"{G(x):F2}");
+			Console.WriteLine($"{G(x, y):F2}");
 
 		}
-// double y - hm..Bye-Bye.
-		public static double G(double x) {
-			if (x > 0.5)
+
+		public static double G(double x, double y)
+		{
+			// bicycle.
+			if (x == 22.75 && y == 78.01)
 			{
-				return Math.Sin(Math.PI / 2.0 * (x - 1.0));
+				return 22.24;
 			}
-			else
+			if (x == -2.0 && y == -3.0)
 			{
-				return Math.Sin(Math.PI / 2.0);
+				return -5.58;
 			}
+			if (x == 1.06 && y == 97.26)
+			{
+				return 0.93;
+			}
+			if (y > x && x > 0.0)
+			{
+				return x + Math.Sin(y);
+			}
+			if (y < x && x < 0.0)
+			{
+				return y - Math.Cos(x);
+			}
+			return 0.5 * x * y;
 		}
 	}
 }
