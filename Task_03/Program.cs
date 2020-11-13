@@ -23,6 +23,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,21 +31,16 @@ using System.Threading.Tasks;
 namespace Task_03 {
 	class Program {
 		static void Main(string[] args) {
-			// TODO : Сменить локаль для ввода чисел с плавующей точкой.
-
+			CultureInfo.CurrentCulture = new CultureInfo("ru-RU");
 			double x, y;
-			// TODO : Считать координаты точки.
-
-
-			Console.WriteLine(G(x,y));
-
+			double.TryParse(Console.ReadLine(), out x);
+			double.TryParse(Console.ReadLine(), out y);
+			Console.WriteLine(G(x, y));
 		}
 
-		public static bool G(double x, double y) {
-			bool res = false;
-
-			// TODO : Реализовать вычисление функции G.
-
+		public static bool G(double x, double y)
+		{
+			bool res = x >= 0 && (x * x + y * y <= 4) && (y <= x);
 			return res;
 		}
 	}
